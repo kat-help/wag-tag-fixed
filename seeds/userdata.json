@@ -1,0 +1,24 @@
+[
+    {
+      "first_name": "Sal",
+      "last_name": "Smith",
+      "user_name": "sal123",
+      "email": "sal@hotmail.com",
+      "password": "password12345"
+    },
+    {
+      "first_name": "Lernantino",
+      "last_name": "Jones",
+      "user_name": "ljones",
+      "email": "lernantino@gmail.com",
+      "password": "password12345"
+    },
+    {
+      "first_name": "Amiko",
+      "last_name": "Williams",
+      "user_name": "awilliams123",
+      "email": "amiko2k20@aol.com",
+      "password": "password12345"
+    }
+  ]
+  

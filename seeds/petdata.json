@@ -1,0 +1,83 @@
+[
+    {
+    "name": "Pepper",
+    "human": "Stacy",
+    "breed": "Staffordshire Terrier",
+    "temperament": "Likes other big dogs (only)",
+    "age": "11",
+    "sex": "male",
+    "about_me": "Pepper is a big dumb dog, overenthused to play with other huge friends, not too excited about little yappers",
+    "about_you": "Friends to go hike with or go for a swim"
+    },
+    {
+    "name": "Abalone",
+    "human": "Stacy",
+    "breed": "Potlicker",
+    "temperament": "Likes other big dogs (only)",
+    "age": "10",
+    "sex": "female",
+    "about_me": "Abalone is a watch dog, one person only kind of dog",
+    "about_you": "Friends to swim with"
+    },
+    {
+    "name": "Wolfy",
+    "human": "Ashton",
+    "breed": "German Shepard",
+    "temperament": "Likes everyone, except her sister",
+    "age": "1",
+    "sex": "female",
+    "about_me": "Super hyper and ready to get some energy out",
+    "about_you": "Friends to run, bounce, play, roll, anything!"
+    },
+    {
+        "name": "Chauncy",
+        "human": "Tessa",
+        "breed": "German Shepard",
+        "temperament": "Likes everyone",
+        "age": "1",
+        "sex": "female",
+        "about_me": "Super hyper and ready to get some energy out",
+        "about_you": "Someone to play with that likes her more than her sister"
+    },
+    {
+        "name": "Charlie",
+        "human": "Felicia",
+        "breed": "Lab mix",
+        "temperament": "friendly with people and dogs",
+        "age": "9",
+        "sex": "male",
+        "about_me": "full of energy",
+        "about_you": "Someone to rough house with"
+    },
+    {
+        "name": "Bane",
+        "human": "Felicia",
+        "breed": "Pit bull mix",
+        "temperament": "Likes small dogs only",
+        "age": "8",
+        "sex": "male",
+        "about_me": "Laid back",
+        "about_you": "A tiny dog with submissive behaviors"
+    },
+    {
+        "name": "Nika",
+        "human": "Lisa",
+        "breed": "Border collie",
+        "temperament": "Likes all dogs",
+        "age": "3",
+        "sex": "female",
+        "about_me": "bounces off the walls hyper",
+        "about_you": "Anyone to play play play!!!"
+    },
+    {
+        "name": "Ollie",
+        "human": "Derek",
+        "breed": "Boston Terrier",
+        "temperament": "Likes only big dogs",
+        "age": "7",
+        "sex": "male",
+        "about_me": "really laid back",
+        "about_you": "Someone to go on long walks"
+    }
+]
+

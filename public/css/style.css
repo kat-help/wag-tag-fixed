@@ -1,0 +1,14 @@
+.profile-header {
+    text-align: center;
+}
+
+.profile-options {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.modal-wrapper {
+    display: flex;
+    justify-content: center;
+}

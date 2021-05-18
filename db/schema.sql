@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS wagtag_db;
+CREATE DATABASE wagtag_db;
