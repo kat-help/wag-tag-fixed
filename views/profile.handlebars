@@ -1,0 +1,262 @@
+{{!-- GET user pets to display, option to add, edit, or delete pets --}}
+{{#if logged_in}}
+
+<h4 class="profile-header"> Welcome to your profile, {{user_name}} !</h4>
+
+</br>
+
+<div class="modal-wrapper">
+  {{!-- Add New Pet Modal Trigger --}}
+  <div class="profile-options">
+    <a class="waves-effect waves-light btn modal-trigger modal-close" href="#add-modal">Add New Pet</a>
+  </div>
+  {{!-- Update Profile Modal Trigger --}}
+  <div class="profile-options">
+    <a class="waves-effect waves-light btn modal-trigger modal-close" href="#update-acct-modal">Update Account</a>
+  </div>
+</div>
+
+<div>
+  <h5 class="profile-header">My Pets</h5>
+</div>
+
+{{!-- List of users pets --}}
+<div class="my-pets-wrapper pet-profile-card">
+  {{#each pets as |pet| }}
+  {{#if pet}}
+    <div class="row pet-row">
+      <div class="col s12 m6">
+        <div class="card">
+
+          <div class="card-image">
+              <img src="/uploads/{{pet.image.name}}">
+              <span class="card-title card-panel cyan lighten-1">{{name}}</span>
+          </div>
+
+            <div class="card-content">
+                <p>Breed: {{breed}}</p>
+                <p>Sex: {{sex}}</p>
+                <p>Age: {{age}}</p>
+                <p>Temperament: {{temperament}}</p>
+                <p>About Me: {{about_me}}</p>
+                <p>About You: {{about_you}}</p>
+                <!-- Update Pet Modal Trigger -->
+                <button data-update_id="{{id}}" class="waves-effect waves-light modal-trigger modal-close btn" href="#update-pet-modal">Edit Pet</button>
+                <!-- Delete Pet Modal Trigger -->
+                <button data-delete_id="{{id}}" class="waves-effect waves-light btn delete-btn" type="button">Delete Pet</button>
+            </div>
+
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  {{/each}}
+</div>
+
+{{!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ALL MODALS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< --}}
+
+{{!-- NEW PET --}}
+<div id="add-modal" class="modal">
+    <div class="modal-content">
+        <h5>Enter your new pet information below:</h5>
+        <div class="row">
+            {{!-- Add Pet Form --}}
+            <form class="col s12 new-pet-form">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="new-name" type="text" class="validate">
+                  <label for="new-name">Pet Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="new-human" type="text" class="validate">
+                  <label for="new-human">Human Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <select id="new-age">
+                    <option value="">Age</option>
+                    <option value="under 1 year">under 1 year</option>
+                    <option value="1-5 years">1-5 years</option>
+                    <option value="5-10 years">5-10 years</option>
+                    <option value="10 years or older">10 years or older</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id="new-sex">
+                    <option value="">Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="new-breed" type="text" class="validate">
+                  <label for="new-breed">Breed</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="new-temperament" type="text" class="validate">
+                  <label for="new-temperament">Temperament</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="new-about_me" class="materialize-textarea"></textarea>
+                  <label for="new-about_me">Tell us about your pet...</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="new-about_you" class="materialize-textarea"></textarea>
+                  <label for="new-about_you">Describe the ideal companion for your pet...</label>
+                </div>
+              </div>
+              <button id="add-pet-btn" class="btn waves-effect waves-light" type="submit">Add New Pet</button>
+            </form>          
+          </div>
+
+          <div class="row">
+              <form class="col s12 photo-upload-form" action="#">
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>Upload Photo</span>
+                    <input type="file" id="newImage">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+              </form>
+          </div>
+          
+    </div>
+</div>
+
+{{!-- UPDATE PET --}}
+<div id="update-pet-modal" class="modal">
+  <div class="modal-content">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="update-name" type="text" class="validate" placeholder={{name}}>
+            <label for="update-name">Update Pet Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="update-human" type="text" class="validate" placeholder={{human}}>
+            <label for="update-human">Update Human Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+                  <select id="update-age">
+                    <option value="">Age</option>
+                    <option value="under 1 year">under 1 year</option>
+                    <option value="1-5 years">1-5 years</option>
+                    <option value="5-10 years">5-10 years</option>
+                    <option value="10 years or older">10 years or older</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id="update-sex">
+                    <option value="">Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="update-breed" type="text" class="validate" placeholder={{breed}}>
+            <label for="update-breed">Update Breed</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="update-temperament" type="text" class="validate" placeholder={{temperament}}>
+            <label for="update-temperament">Update Temperament</label>
+          </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="update-about_me" class="materialize-textarea" placeholder="Update Description"></textarea>
+              <label for="update-about_me">Tell us about your pet...</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="update-about_you" class="materialize-textarea" placeholder="Update Companion Description"></textarea>
+              <label for="update-about_you">Describe the ideal companion for your pet...</label>
+            </div>
+          </div>
+          <form enctype='multipart/form-data' action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Update Photo</span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </form>
+          <button id="update-btn" class="btn waves-effect waves-light" type="submit" >Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{{!-- UPDATE >> ACCOUNT << --}}
+  <div id="update-acct-modal" class="modal signup-form">
+      <div class="modal-content">
+        {{!-- Edit Account Form--}}
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="update-first_name" type="text" class="validate" placeholder={{first_name}}>
+                  <label for="update-first_name">Update First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="update-last_name" type="text" class="validate" placeholder={{last_name}}>
+                  <label for="update-last_name">Update Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="update-email" type="email" class="validate" placeholder={{email}}>
+                  <label for="update-email">Update Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s6">
+                  <div class="input-field">
+                    <input id="update-username" type="text" class="validate" placeholder={{user_name}}>
+                    <label for="update-username">Update username</label>
+                  </div>
+                </div>
+                <div class="input-field col s6">
+                  <input id="update-password2" type="password" class="validate" placeholder={{password}}>
+                  <label for="update-password2">Update password</label>
+                </div>
+              </div>
+              <button id="update-acct-btn" class="btn waves-effect waves-light">Save Changes</button>
+            </form>
+          </div>
+      </div>
+    </div>
+
+
+{{else}}
+
+<h5 class="center">Log in to your account to view profile</h5>
+
+{{/if}}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/js/profile.js"></script>
+
+{{!-- Script for age and sex select dropdown --}}
+<script>  $(document).ready(function(){
+    $('select').formSelect();
+  });</script>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+  <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Waggin-Tag-Em</title>
+      <link rel="stylesheet" href="/css/style.css">
+      {{!-- Materialize --}}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      {{!-- Font Awesome --}}
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper cyan lighten-1">
+                    <a href="#" class="brand-logo">Waggin-Tag-Em</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                      <li><a class="waves-effect waves-light btne" href="/">Home</a></li> 
+                      {{#if logged_in}}
+                      <li><a class="waves-effect waves-light btn" href="/profile">Profile</a></li>              
+                      <li><a class="waves-effect waves-light btn" id="logoutBtn" href="/">Logout</a></li>
+                      {{else}}
+                      <!-- Login Modal Trigger -->
+                      <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal1">Log In</a></li>              
+                      <!-- Create Account Modal Trigger -->
+                      <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal2">Create Account</a></li>
+                      {{/if}}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+      <!-- Login Modal Structure -->
+      <div id="modal1" class="modal login-form">
+        <div class="modal-content">
+
+          <a class="waves-effect waves-light btn modal-trigger modal-close" href="#modal2">Don't have an account yet? Click here to sign in</a>
+          
+          {{!-- Login Form in Modal  --}}
+            <form>
+                <div class="input-field">
+                  <input id="user_name" type="text" class="validate">
+                  <label for="user_name">Username</label>
+                </div>
+              
+                <div class="input-field">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              
+                <button id="log-in-btn" class="btn waves-effect waves-light">Log In</button>
+            </form>
+            
+          </div>
+        </div>
+
+        <!-- Create Account Modal Structure -->
+        <div id="modal2" class="modal signup-form">
+          <div class="modal-content">
+
+            <a class="waves-effect waves-light btn modal-trigger modal-close" href="#modal1">Already have an account? Click here to log in</a>
+
+            {{!-- Create Account Form in Modal --}}
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="new-first_name" type="text" class="validate">
+                      <label for="new-first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="new-last_name" type="text" class="validate">
+                      <label for="new-last_name">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="new-email" type="email" class="validate">
+                      <label for="new-email">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s6">
+                      <div class="input-field">
+                        <input id="new-user_name" type="text" class="validate">
+                        <label for="new-user_name">Create a username:</label>
+                      </div>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="new-password" type="password" class="validate">
+                      <label for="new-password">Create a password:</label>
+                    </div>
+                  </div>
+                  <button id="create-acct-btn" class="btn waves-effect waves-light">Create Account</button>
+                </form>
+              </div>
+          </div>
+        </div>
+
+        <main>
+            {{{ body }}}
+        </main>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/index.js"></script>
+    {{!-- Script for Modals --}}
+    {{!-- <script>
+      $(document).ready(function(){
+        $('.modal').modal();
+      });
+    </script> --}}
+
+    {{#if logged_in}}
+
+    <script src="/js/logout.js"></script>
+
+    {{else}}
+
+    <script src="/js/login.js"></script>
+    <script src="/js/newAccount.js"></script>
+
+    {{/if}}
+
+    </body>
+
+  </html>
